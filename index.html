@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmic Drift</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-shell">
+      <div class="hud">
+        <div class="brand">Cosmic Drift</div>
+        <div class="stats">
+          <span>Score: <strong id="score">0</strong></span>
+          <span>Level: <strong id="level">1</strong></span>
+          <span>Lives: <strong id="lives">3</strong></span>
+          <span>Best: <strong id="best-score">0</strong></span>
+        </div>
+      </div>
+
+      <canvas id="gameCanvas" width="900" height="600" aria-label="Cosmic Drift game"></canvas>
+
+      <div id="overlay" class="overlay visible">
+        <div class="panel">
+          <h1>Cosmic Drift</h1>
+          <p>Move with A/D or arrow keys.</p>
+          <p>Press Space to fire and dodge incoming hazards.</p>
+          <p>Collect green shield orbs and blue rapid-fire orbs.</p>
+          <button id="startButton">Start Mission</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
