@@ -200,8 +200,8 @@ function drawRock(rock, index) {
 
 function drawCharacter(character, isMonster) {
   const { x, y, radius } = character;
-  const fur = isMonster ? '#6d43a1' : '#f5bc70';
-  const trim = isMonster ? '#482d6b' : '#c77946';
+  const fur = isMonster ? '#fffdf1' : '#f4bd38';
+  const trim = isMonster ? '#647585' : '#9a641d';
 
   ctx.save();
   ctx.translate(x, y);
