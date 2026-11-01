@@ -119,7 +119,7 @@ function updateGame(delta) {
 }
 
 function drawBackground() {
-  ctx.fillStyle = '#9aca73';
+  ctx.fillStyle = '#d96865';
   ctx.fillRect(0, 0, width, height);
 
   ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
@@ -131,7 +131,7 @@ function drawBackground() {
     }
   }
 
-  ctx.fillStyle = 'rgba(58, 112, 63, 0.15)';
+  ctx.fillStyle = 'rgba(105, 35, 44, 0.2)';
   ctx.fillRect(0, 0, width, 16);
   ctx.fillRect(0, height - 16, width, 16);
   ctx.fillRect(0, 0, 16, height);
