@@ -3,33 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cosmic Drift</title>
+    <meta name="theme-color" content="#172b25" />
+    <title>Monster Dash</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="game-shell">
-      <div class="hud">
-        <div class="brand">Cosmic Drift</div>
-        <div class="stats">
-          <span>Score: <strong id="score">0</strong></span>
-          <span>Level: <strong id="level">1</strong></span>
-          <span>Lives: <strong id="lives">3</strong></span>
-          <span>Best: <strong id="best-score">0</strong></span>
+    <main class="game-shell">
+      <header class="hud">
+        <div class="brand">Monster Dash</div>
+        <div class="stats" aria-live="polite">
+          <span>Time: <strong id="score">0.0s</strong></span>
+          <span>Best: <strong id="best-score">0.0s</strong></span>
         </div>
-      </div>
+      </header>
 
-      <canvas id="gameCanvas" width="900" height="600" aria-label="Cosmic Drift game"></canvas>
+      <canvas id="gameCanvas" width="900" height="600" aria-label="Monster Dash game. Move the human and avoid the rocks and monster."></canvas>
 
       <div id="overlay" class="overlay visible">
         <div class="panel">
-          <h1>Cosmic Drift</h1>
-          <p>Move with A/D or arrow keys.</p>
-          <p>Press Space to fire and dodge incoming hazards.</p>
-          <p>Collect green shield orbs and blue rapid-fire orbs.</p>
-          <button id="startButton">Start Mission</button>
+          <p class="eyebrow">A tiny game of keep-away</p>
+          <h1>Monster Dash</h1>
+          <p>Run from the monster and dodge the rocks.</p>
+          <p>Touch a rock and the monster catches you!</p>
+          <p class="hint">Move with WASD, arrow keys, or the buttons below.</p>
+          <button id="startButton">Start running</button>
         </div>
       </div>
-    </div>
+
+      <div class="controls" aria-label="Movement controls">
+        <button class="control-button up" data-direction="up" aria-label="Move up">▲</button>
+        <button class="control-button left" data-direction="left" aria-label="Move left">◀</button>
+        <button class="control-button down" data-direction="down" aria-label="Move down">▼</button>
+        <button class="control-button right" data-direction="right" aria-label="Move right">▶</button>
+      </div>
+    </main>
 
     <script src="script.js"></script>
   </body>

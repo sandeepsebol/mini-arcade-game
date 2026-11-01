@@ -1,11 +1,10 @@
-# Cosmic Drift
+# Monster Dash
 
-A playable browser game built with pure HTML, CSS, and JavaScript.
+A tiny browser arcade game built with HTML, CSS, and JavaScript.
 
 ## How to run
 
-1. Open `index.html` in a browser, or
-2. Run a local web server in the project folder:
+Open `index.html` in a browser, or start a local web server in the project folder:
 
 ```bash
 python3 -m http.server 8000
@@ -13,21 +12,8 @@ python3 -m http.server 8000
 
 Then visit `http://localhost:8000`.
 
-## Controls
+## How to play
 
-- Move: `A` / `D` or left / right arrow keys
-- Shoot: `Space`
-- Dodge hazards and collect power-ups
+Move the human with `WASD`, the arrow keys, or the on-screen direction buttons. Avoid the rocks and keep away from the pursuing monster for as long as possible. Touching a rock means the monster catches you.
 
-## Gameplay
-
-- Survive incoming enemy meteors
-- Earn points for each destroyed asteroid
-- Collect shield and rapid-fire power-ups
-- Progress to higher levels as your score rises
-
-## Files
-
-- `index.html` – game layout
-- `style.css` – UI styling
-- `script.js` – gameplay logic and rendering
+Your longest run is saved in the browser.
