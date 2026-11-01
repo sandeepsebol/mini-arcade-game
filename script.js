@@ -141,30 +141,60 @@ function drawBackground() {
 function drawRock(rock, index) {
   ctx.save();
   ctx.translate(rock.x, rock.y);
-  ctx.fillStyle = 'rgba(43, 59, 49, 0.22)';
+  ctx.fillStyle = 'rgba(35, 44, 58, 0.24)';
   ctx.beginPath();
   ctx.ellipse(3, rock.radius * 0.64, rock.radius * 1.08, rock.radius * 0.5, 0, 0, Math.PI * 2);
   ctx.fill();
 
-  ctx.fillStyle = index % 2 === 0 ? '#758477' : '#858b7b';
-  ctx.strokeStyle = '#59685c';
-  ctx.lineWidth = 3;
+  const radius = rock.radius;
+  const rotation = index * 0.47;
+  const rockGradient = ctx.createLinearGradient(-radius, -radius, radius, radius);
+  if (index % 2 === 0) {
+    rockGradient.addColorStop(0, '#278ab1');
+    rockGradient.addColorStop(0.52, '#287f91');
+    rockGradient.addColorStop(1, '#55ba80');
+  } else {
+    rockGradient.addColorStop(0, '#2b78bd');
+    rockGradient.addColorStop(0.52, '#278f9b');
+    rockGradient.addColorStop(1, '#70bb72');
+  }
+
+  ctx.fillStyle = rockGradient;
+  ctx.strokeStyle = '#1f626c';
+  ctx.lineWidth = 2.5;
   ctx.beginPath();
-  for (let i = 0; i < 9; i += 1) {
-    const angle = (i / 9) * Math.PI * 2;
-    const irregularity = i % 2 === 0 ? 1 : 0.83;
-    const x = Math.cos(angle) * rock.radius * irregularity;
-    const y = Math.sin(angle) * rock.radius * irregularity;
+  for (let i = 0; i < 8; i += 1) {
+    const angle = rotation + (i / 8) * Math.PI * 2;
+    const irregularity = 0.78 + ((i * 3 + index * 5) % 5) * 0.045;
+    const x = Math.cos(angle) * radius * irregularity;
+    const y = Math.sin(angle) * radius * irregularity;
     if (i === 0) ctx.moveTo(x, y);
     else ctx.lineTo(x, y);
   }
   ctx.closePath();
   ctx.fill();
   ctx.stroke();
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.22)';
+
+  ctx.save();
   ctx.beginPath();
-  ctx.ellipse(-rock.radius * 0.18, -rock.radius * 0.25, rock.radius * 0.35, rock.radius * 0.17, -0.5, 0, Math.PI * 2);
+  ctx.arc(0, 0, radius * 0.76, 0, Math.PI * 2);
+  ctx.clip();
+  ctx.fillStyle = index % 2 === 0 ? 'rgba(104, 221, 130, 0.62)' : 'rgba(113, 220, 136, 0.58)';
+  ctx.beginPath();
+  ctx.moveTo(-radius * 0.82, radius * 0.18);
+  ctx.bezierCurveTo(-radius * 0.42, -radius * 0.3, radius * 0.06, radius * 0.5, radius * 0.73, -radius * 0.44);
+  ctx.lineTo(radius * 0.62, radius * 0.22);
+  ctx.bezierCurveTo(radius * 0.15, radius * 0.75, -radius * 0.32, -radius * 0.04, -radius * 0.82, radius * 0.18);
   ctx.fill();
+
+  ctx.strokeStyle = 'rgba(175, 241, 172, 0.78)';
+  ctx.lineWidth = Math.max(2, radius * 0.07);
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(-radius * 0.48, -radius * 0.4);
+  ctx.quadraticCurveTo(-radius * 0.06, -radius * 0.78, radius * 0.48, -radius * 0.33);
+  ctx.stroke();
+  ctx.restore();
   ctx.restore();
 }
 
